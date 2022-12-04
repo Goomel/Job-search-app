@@ -3,7 +3,7 @@
     <SearchBar />
     <FiltersComponent />
     <JobsList :jobOffers="jobOffersToShow" />
-    <PaginationBar />
+    <PaginationBar :numberOfPages="numberOfPages" />
   </div>
 </template>
 
@@ -23,6 +23,7 @@ const jobOffersToShow = computed(() => {
     offersPerPage * currentPage.value
   );
 });
+const numberOfPages = offers.length / offersPerPage;
 </script>
 
 <style lang="scss" scoped></style>

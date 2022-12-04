@@ -1,13 +1,6 @@
 <template>
   <div class="jobs__list" v-for="job in props.jobOffers" :key="job.id">
-    <JobItem
-      :logo="job.company_logo"
-      :company="job.company"
-      :title="job.title"
-      :type="job.type"
-      :location="job.location"
-      :date="job.created_at"
-    />
+    <JobItem :job="job" />
   </div>
 </template>
 
