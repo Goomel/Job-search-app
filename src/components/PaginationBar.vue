@@ -17,5 +17,3 @@ const props = defineProps({
   numberOfPages: Number,
 });
 </script>
-
-<style lang="scss" scoped></style>

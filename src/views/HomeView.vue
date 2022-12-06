@@ -1,8 +1,10 @@
 <template>
-  <div class="home">
+  <div>
     <SearchBar />
-    <FiltersComponent />
-    <JobsList :jobOffers="jobOffersToShow" />
+    <div class="flex">
+      <FiltersComponent />
+      <JobsList :jobOffers="jobOffersToShow" />
+    </div>
     <PaginationBar :numberOfPages="numberOfPages" />
   </div>
 </template>
@@ -25,5 +27,3 @@ const jobOffersToShow = computed(() => {
 });
 const numberOfPages = offers.length / offersPerPage;
 </script>
-
-<style lang="scss" scoped></style>

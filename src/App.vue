@@ -1,6 +1,10 @@
 <template>
-  <PageHeader />
-  <RouterView />
+  <div class="bg-neutral-100">
+    <div class="w-10/12 mx-auto">
+      <PageHeader />
+      <RouterView />
+    </div>
+  </div>
 </template>
 
 <script setup>

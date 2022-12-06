@@ -1,5 +1,5 @@
 <template>
-  <button type="submit">
+  <button type="submit" class="bg-blue-500 text-white px-10 rounded-lg">
     {{ props.title }}
   </button>
 </template>

@@ -9,5 +9,3 @@ const route = useRoute();
 const id = ref(route.params.id);
 console.log(id.value);
 </script>
-
-<style lang="scss" scoped></style>

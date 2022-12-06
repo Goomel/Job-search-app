@@ -1,6 +1,6 @@
 <template>
-  <div class="jobs__list" v-for="job in props.jobOffers" :key="job.id">
-    <JobItem :job="job" />
+  <div class="w-2/3">
+    <JobItem v-for="job in props.jobOffers" :key="job.id" :job="job" />
   </div>
 </template>
 
@@ -11,5 +11,3 @@ const props = defineProps({
   jobOffers: { type: Array, required: true },
 });
 </script>
-
-<style lang="scss" scoped></style>
