@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-neutral-100">
+  <div>
     <div class="w-10/12 mx-auto">
       <PageHeader />
       <RouterView />

@@ -14,6 +14,8 @@ module.exports = {
         90: "90px",
       },
       colors: {
+        grey: "#F6F7FB",
+        "link-blue": "#1E86FF",
         "main-blue": "#334680",
       },
     },
