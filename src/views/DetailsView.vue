@@ -1,16 +1,17 @@
 <template>
   <div class="flex text-main-blue mb-36">
     <div class="w-1/4 shrink-0 font-semibold">
-      <router-link :to="'/'">
-        <div class="flex items-center text-link-blue">
-          <img
-            src="../assets/images/arrow-left.svg"
-            alt="arrow"
-            class="w-10 p-2"
-          />
-          <p>Back to search</p>
-        </div>
-      </router-link>
+      <div
+        class="flex items-center text-link-blue cursor-pointer"
+        @click="$router.go(-1)"
+      >
+        <img
+          src="../assets/images/arrow-left.svg"
+          alt="arrow"
+          class="w-10 p-2"
+        />
+        <p>Back to search</p>
+      </div>
       <p class="uppercase mt-9 mb-4 text-gray-400 font-bold tracking-wide">
         How to apply
       </p>

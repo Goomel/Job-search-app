@@ -2,7 +2,7 @@
   <div>
     <div class="w-10/12 mx-auto">
       <PageHeader />
-      <RouterView />
+      <RouterView :key="$route.path" />
     </div>
   </div>
 </template>
