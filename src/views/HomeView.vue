@@ -1,9 +1,9 @@
 <template>
   <div>
-    <SearchBar />
+    <SearchBar @change-filter-text="setFilterText" />
     <div class="flex">
       <FiltersComponent />
-      <JobsList :job-offers="jobOffersToShow" />
+      <JobsList :job-offers="filteredOffers" />
     </div>
     <PaginationBar
       :number-of-pages="numberOfPages"
@@ -25,6 +25,9 @@ import offers from "../data/jobOffers.json";
 
 const router = useRouter();
 const route = useRoute();
+
+const filterText = ref("");
+
 const currentPage = ref(route.params.id);
 const offersPerPage = 10;
 
@@ -34,7 +37,30 @@ const jobOffersToShow = computed(() => {
     offersPerPage * currentPage.value
   );
 });
+
+const filteredOffers = computed(() => {
+  //if search input is empty, return all offers
+  if (!filterText.value.length) return jobOffersToShow.value;
+  //filtering by title and company
+  let filteredByTitle = offers.filter((offer) =>
+    offer.title.toLowerCase().includes(filterText.value.toLowerCase())
+  );
+  let filteredByCompany = offers.filter((offer) =>
+    offer.company.toLowerCase().includes(filterText.value.toLowerCase())
+  );
+
+  //offers filtered by title and filtered by company added to Set, to avoid duplicate
+  let currentOffers = [...new Set(filteredByTitle.concat(filteredByCompany))];
+  return currentOffers.slice(
+    offersPerPage * (currentPage.value - 1),
+    offersPerPage * currentPage.value
+  );
+});
 const numberOfPages = offers.length / offersPerPage;
+
+function setFilterText(value) {
+  filterText.value = value;
+}
 
 function setPage(value) {
   console.log(value, typeof value);

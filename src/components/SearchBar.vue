@@ -12,6 +12,7 @@
         class="grow min-w-0 text-sm px-3"
         type="search"
         placeholder="Title, companies, expertise or benefits"
+        @input="$emit('changeFilterText', $event.target.value)"
       />
       <SubmitButton title="Search" />
     </form>
