@@ -6,7 +6,7 @@
         v-model:jobType="isFullTime"
         v-model:location="location"
       />
-      <JobsList :job-offers="filteredOffers" />
+      <JobsList :job-offers="jobOffersToShow" />
     </div>
     <PaginationBar
       :number-of-pages="numberOfPages"
@@ -18,7 +18,6 @@
 
 <script setup>
 import { ref, computed, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
 import SearchBar from "../components/SearchBar.vue";
 import FiltersComponent from "../components/FiltersComponent.vue";
 import JobsList from "../components/JobsList.vue";
@@ -26,30 +25,25 @@ import PaginationBar from "../components/PaginationBar.vue";
 
 import offers from "../data/jobOffers.json";
 
-const router = useRouter();
-const route = useRoute();
-
 const filterText = ref("");
 const location = ref("");
 const isFullTime = ref(false);
 
-const currentPage = ref(route.params.id);
+const currentPage = ref(1);
 const offersPerPage = 10;
-const numberOfPages = offers.length / offersPerPage;
 
 const jobOffersToShow = computed(() => {
-  return offers.slice(
+  return filteredOffers.value.slice(
     offersPerPage * (currentPage.value - 1),
     offersPerPage * currentPage.value
   );
 });
 
 const filteredOffers = computed(() => {
+  let finalOffers = offers;
   //if search input is empty, return all offers
   if (!filterText.value.length && !location.value && !isFullTime.value)
-    return jobOffersToShow.value;
-
-  let finalOffers = offers;
+    return finalOffers;
 
   //filtering by type of job and location
   if (isFullTime.value) {
@@ -70,27 +64,29 @@ const filteredOffers = computed(() => {
   );
 
   //offers filtered by title and filtered by company added to Set, to avoid duplicate
-  let currentOffers = [...new Set(filteredByTitle.concat(filteredByCompany))];
-  return currentOffers.slice(
-    offersPerPage * (currentPage.value - 1),
-    offersPerPage * currentPage.value
-  );
+  return [...new Set(filteredByTitle.concat(filteredByCompany))];
 });
+
+watch([isFullTime, location], () => {
+  currentPage.value = 1;
+});
+
+const numberOfPages = computed(() =>
+  Math.ceil(filteredOffers.value.length / offersPerPage)
+);
 
 function setFilterText(value) {
   filterText.value = value;
 }
 
+// change page on pagination button click
 function setPage(value) {
   if (value === "nextPage") {
-    if (currentPage.value < numberOfPages) currentPage.value += 1;
+    if (currentPage.value < numberOfPages.value) currentPage.value += 1;
   } else if (value === "prevPage") {
     if (currentPage.value > 1) currentPage.value -= 1;
   } else {
     currentPage.value = parseInt(value);
   }
 }
-watch(currentPage, (newPage) => {
-  router.push({ name: "offers", params: { id: newPage } });
-});
 </script>
