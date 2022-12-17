@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "search-bg": "url('./src/assets/images/backgroundImg.png')",
+        "search-bg": "url('../assets/images/backgroundImg.png')",
       },
       width: {
         90: "90px",

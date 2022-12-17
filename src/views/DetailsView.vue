@@ -18,7 +18,7 @@
       <div class="how-to-apply break-words" v-html="how_to_apply"></div>
     </div>
     <div class="grow lg:pl-20">
-      <div class="mt-7 lg:mt-0 lg:flex">
+      <div class="mt-7 lg:mt-0 lg:flex lg:items-center">
         <h1 class="font-bold text-2xl mr-4 mt-3 mb-2.5">
           {{ title }}
         </h1>
@@ -45,6 +45,7 @@
           <img
             :src="company_logo"
             :alt="company + ' logo'"
+            @error="setDefaultImg"
             class="w-full h-fit object-contain rounded"
           />
         </div>
@@ -64,6 +65,7 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import offers from "../data/jobOffers.json";
+import defaultImg from "../assets/images/notFound.png";
 
 const route = useRoute();
 const id = ref(route.params.id);
@@ -78,4 +80,8 @@ const {
   company_logo,
   location,
 } = singleOffer;
+
+function setDefaultImg(e) {
+  e.target.src = defaultImg;
+}
 </script>

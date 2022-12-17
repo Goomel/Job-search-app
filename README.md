@@ -1,14 +1,33 @@
-# job-search-app
+# Job search app
 
-This template should help get you started developing with Vue 3 in Vite.
+Solution for [Github Jobs - devchallenges](https://devchallenges.io/challenges/TtUjDt19eIHxNQ4n5jps)
 
-## Recommended IDE Setup
+## Live 📍
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[https://github-jobs-search-app.netlify.app/](https://github-jobs-search-app.netlify.app/)
 
-## Customize configuration
+## Screenshots 📸
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+<p align="center">
+    <img src="./src/assets/images/gh-jobs-desktop-view.png" alt="Desktop view">
+</p>
+
+<p align="center">
+    <img src="./src/assets/images/gh-jobs-mobile-view.png" alt="Mobile view">
+</p>
+
+<p align="center">
+    <img src="./src/assets/images/gh-jobs-details.png" alt="Details">
+</p>
+
+## Technologies 🔧
+
+- Vue.js
+- Javascript
+- Tailwind
+- Vite
+- Prettier
+- Eslint
 
 ## Project Setup
 
@@ -29,7 +48,3 @@ npm run build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
