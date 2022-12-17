@@ -7,10 +7,11 @@
         <img
           :src="company_logo"
           :alt="company + ' logo'"
+          @error="setDefaultImg"
           class="w-full h-fit object-contain rounded"
         />
       </div>
-      <div class="flex w-full">
+      <div class="lg:flex w-full">
         <div class="flex flex-1 flex-col justify-between text-xs">
           <p class="font-bold">
             {{ company }}
@@ -24,7 +25,9 @@
             {{ type }}
           </p>
         </div>
-        <div class="flex flex-1 items-end justify-end text-xs text-gray-400">
+        <div
+          class="flex flex-row lg:flex-col xl:flex-row flex-1 items-end lg:justify-end mt-2 text-xs text-gray-400"
+        >
           <p class="flex">
             <img
               src="../assets/images/world.svg"
@@ -48,9 +51,14 @@
 </template>
 
 <script setup>
+import defaultImg from "../assets/images/notFound.png";
 const props = defineProps({
   job: Object,
 });
 const { company, company_logo, title, location, type, created_at, id } =
   props.job;
+
+function setDefaultImg(e) {
+  e.target.src = defaultImg;
+}
 </script>

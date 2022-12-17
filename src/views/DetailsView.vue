@@ -1,6 +1,6 @@
 <template>
-  <div class="flex text-main-blue mb-36">
-    <div class="w-1/4 shrink-0 font-semibold">
+  <div class="lg:flex text-main-blue mb-36">
+    <div class="lg:w-1/4 shrink-0 font-semibold">
       <div
         class="flex items-center text-link-blue cursor-pointer"
         @click="$router.go(-1)"
@@ -17,9 +17,11 @@
       </p>
       <div class="how-to-apply break-words" v-html="how_to_apply"></div>
     </div>
-    <div class="grow pl-20">
-      <div class="flex">
-        <h1 class="font-bold text-2xl mr-4 mb-2.5">{{ title }}</h1>
+    <div class="grow lg:pl-20">
+      <div class="mt-7 lg:mt-0 lg:flex">
+        <h1 class="font-bold text-2xl mr-4 mt-3 mb-2.5">
+          {{ title }}
+        </h1>
         <p
           class="w-fit h-fit px-2 py-1.5 font-bold border border-solid border-main-blue rounded text-xs"
         >

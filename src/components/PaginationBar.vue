@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex space-x-3 justify-end mb-20 text-xs text-darker-grey font-semibold"
+    class="flex space-x-3 justify-center lg:justify-end mb-20 text-xs text-darker-grey font-semibold"
   >
     <button
       class="border-2 w-9 h-9 border-darker-grey rounded-md flex justify-center items-center cursor-pointer hover:text-link-blue hover:border-link-blue"

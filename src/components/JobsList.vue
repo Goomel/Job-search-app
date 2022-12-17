@@ -1,5 +1,5 @@
 <template>
-  <div class="w-2/3">
+  <div class="lg:w-2/3">
     <JobItem v-for="job in props.jobOffers" :key="job.id" :job="job" />
   </div>
 </template>

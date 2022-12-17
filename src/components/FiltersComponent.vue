@@ -1,6 +1,6 @@
 <template>
-  <div class="w-1/3 p-8 pl-0 text-main-blue text-sm font-semibold">
-    <div class="p-2 flex items-center">
+  <div class="lg:w-1/3 lg:p-8 pl-0 text-main-blue text-sm font-semibold">
+    <div class="my-7 lg:ml-2 lg:mt-0 lg:mb-7 flex items-center">
       <input
         type="checkbox"
         class="w-4 h-4"

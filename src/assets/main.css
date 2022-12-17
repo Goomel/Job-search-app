@@ -32,4 +32,7 @@
     color: white;
     border: none; 
   }
+  .active:hover{
+    color: white !important;
+  }
 }

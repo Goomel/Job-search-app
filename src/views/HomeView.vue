@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchBar @change-filter-text="setFilterText" />
-    <div class="flex">
+    <div class="lg:flex">
       <FiltersComponent
         v-model:jobType="isFullTime"
         v-model:location="location"
