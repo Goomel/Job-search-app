@@ -77,6 +77,7 @@ const numberOfPages = computed(() =>
 
 function setFilterText(value) {
   filterText.value = value;
+  currentPage.value = 1;
 }
 
 // change page on pagination button click
